@@ -1,0 +1,16 @@
+@use "@picocss/pico/scss/pico" with (
+  $enable-semantic-container: false ,
+  $enable-classes: false,
+  $css-var-prefix: "--bv-",
+  $semantic-root-element: "#root",
+  $modules: (
+    "themes/default": false
+  )
+);
+
+@use "styles";
+@use "dark";
+
+:root {
+  @include dark.theme;
+}

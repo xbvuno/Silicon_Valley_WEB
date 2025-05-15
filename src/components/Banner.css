@@ -1,0 +1,20 @@
+.sv-banner {
+    background-image: url('media/img/silicon-valley-wp.png');
+    background-size: cover;
+    padding-top: 2rem;
+    height: clamp(12rem, 40svw, 14rem);
+    background-position: 50% 50%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.sv-banner h1 {
+    font-size: min(6rem, 14svw);
+    white-space: nowrap;
+}
+
+.sv-banner .sv-chap-sub {
+    text-shadow: 0 0 1rem black;
+    color: rgb(224, 224, 224);
+}
