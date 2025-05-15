@@ -1,5 +1,5 @@
 .sv-banner {
-    background-image: url('media/img/silicon-valley-wp.png');
+    background-image: url('/media/img/silicon-valley-wp.png');
     background-size: cover;
     padding-top: 2rem;
     height: clamp(12rem, 40svw, 14rem);

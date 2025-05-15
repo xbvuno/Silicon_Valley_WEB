@@ -5,30 +5,7 @@ import Banner from "./components/Banner";
 import Header from "./components/Header";
 import DownloadArticlesContainer from "./components/DownloadArticlesContainer";
 
-
-
 function App() {
-	const [count, setCount] = useState(0);
-
-	useEffect(() => {
-		// fetchData();
-		let file_fund = {
-			latest_tag: "v0.1.1",
-			windows: {
-				version: "v0.1.1",
-				url: "https://github.com/xbvuno/Silicon_Valley_RW/releases/download/v0.1.1/silicon_valley-v0_1_1-win_x86_64.exe",
-			},
-			macos: {
-				version: "v0.1.0",
-				url: "https://github.com/xbvuno/Silicon_Valley_RW/releases/download/v0.1.0/silicon_valley-v0_1_0-macos.zip",
-			},
-			linux: {
-				version: "v0.1.0",
-				url: "https://github.com/xbvuno/Silicon_Valley_RW/releases/download/v0.1.0/silicon_valley-v0_1_0-linux.zip",
-			},
-		};
-	}, []);
-
 	return (
 		<>
 			<Banner />
