@@ -89,3 +89,26 @@ section.download > article p {
     background-color: transparent;
     width: 30%;
 }
+
+
+.changelog div {
+    padding: 1rem;
+}
+
+.changelog h1 {
+    font-family: 'Bebas Neue', 'Arial Black', 'Impact', sans-serif;
+    letter-spacing: 0.2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+ .changelog div h2, .changelog div h3{
+    padding: 1rem;
+    font-family: 'Share Tech', sans-serif;
+
+}
+
+
+.changelog {
+    text-align: left;
+}

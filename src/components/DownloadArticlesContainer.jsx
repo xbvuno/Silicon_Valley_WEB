@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { marked } from 'marked'
 import "./DownloadArticlesContainer.css";
 
 const downloadFile = (url) => {
@@ -160,6 +161,7 @@ function DownloadArticlesContainer() {
 	const [isNormalDownloadDialogOpen, setNormalDownloadDialogOpen] =
 		useState(false);
 	const [fundFiles, setFundFiles] = useState({
+		change_log: {},
 		latest_tag: "",
 		windows: {
 			version: "",
@@ -179,6 +181,8 @@ function DownloadArticlesContainer() {
 		const repo = "xbvuno/Silicon_Valley_RW";
 
 		let fund_files = {
+			expire_on: "",
+			change_log: {},
 			latest_tag: "",
 			windows: {
 				version: "",
@@ -200,17 +204,27 @@ function DownloadArticlesContainer() {
 
 		fund_files.latest_tag = tags[0].name;
 
-		const chached = localStorage.getItem("last_funds");
-		if (chached) {
+		const cached = localStorage.getItem("last_funds");
+		if (cached) {
 			console.log("trovati file nella cache");
-			const cached_json = JSON.parse(chached);
-			if (cached_json.latest_tag == fund_files.latest_tag) {
-				console.log("stessa versione trovata!, recupero i file");
-				setFundFiles(cached_json);
-				return;
+			const cached_json = JSON.parse(cached);
+
+			if (
+				cached_json.expire_on &&
+				new Date(cached_json.expire_on) > new Date()
+			) {
+				if (
+					cached_json.latest_tag &&
+					cached_json.latest_tag == fund_files.latest_tag
+				) {
+					console.log("stessa versione trovata!, recupero i file");
+					setFundFiles(cached_json);
+					return;
+				}
+			} else {
+				console.log("cache scaduta, rimuovo i file");
 			}
 		}
-
 		for (const tag of tags) {
 			const tagName = tag.name;
 			if (
@@ -237,6 +251,7 @@ function DownloadArticlesContainer() {
 					);
 				});
 			if (!release) continue;
+			fund_files.change_log[tagName] = release.body;
 			for (const asset of release.assets) {
 				if (asset.name.includes("win") && !fund_files.windows.version) {
 					fund_files.windows.version = tagName;
@@ -256,7 +271,10 @@ function DownloadArticlesContainer() {
 				}
 			}
 		}
-		setFundFiles(fund_files);
+		(fund_files.expire_on = new Date(
+			new Date().getTime() + 60 * 60 * 1000
+		).toISOString()), // ora + 1 ora
+			setFundFiles(fund_files);
 		localStorage.setItem("last_funds", JSON.stringify(fund_files));
 	}
 
@@ -266,8 +284,8 @@ function DownloadArticlesContainer() {
 
 	function renderWindows() {
 		if (!fundFiles.windows.url) return;
-        function handleClick() {
-            setSmartScreenDialogOpen(true);
+		function handleClick() {
+			setSmartScreenDialogOpen(true);
 			downloadFile(fundFiles.windows.url);
 		}
 		return (
@@ -323,6 +341,16 @@ function DownloadArticlesContainer() {
 			</article>
 		);
 	}
+
+	function renderChangelog() {
+		let array = [];
+		for (const tag in fundFiles.change_log) {
+			array.push(marked(
+				fundFiles.change_log[tag]
+			))
+		}
+		return array.join("<hr/>");
+	}
 	return (
 		<>
 			<WindowsSmartScreenDialog
@@ -342,6 +370,11 @@ function DownloadArticlesContainer() {
 				{renderMacOS()}
 				{renderLinux()}
 			</section>
+			<section className='changelog'>
+				<h1>Changelog</h1><hr/>
+				<div dangerouslySetInnerHTML={{ __html: renderChangelog() }} />
+			</section>
+			
 		</>
 	);
 }
