@@ -7,12 +7,17 @@
 @font-face {
     font-family: 'Ash';
     src: url('/media/fonts/DCC - Ash.otf') format('opentype');
+  }
+
+* {
+    line-height: 1;
 }
 
 .sv-title {
-    font-family: 'Ash', 'Arial Black', 'Impact', sans-serif;
+    font-family: 'Ash', 'Bebas Neue', 'Arial Black', 'Impact', sans-serif;
     font-weight: normal;
     letter-spacing: 0.2rem;
+    line-height: 1;
     margin-bottom: 0;
     white-space: nowrap;
 }
@@ -64,13 +69,49 @@ a {
 .centered-button {
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     gap: 1rem;
+    margin-bottom: 2rem;
+    align-items: center;
+
 }
 
+.centered-button p {
+    text-align: left;
+}
+
+.centered-button button {
+    min-width: 8rem;
+    max-height: 4rem;
+}
 .centered-button button a{
     color: black;
     margin-bottom: 0;
     text-decoration: none;
     font-size: 1.5rem;
+    white-space: nowrap;
+}
+
+#root > main {
+    max-width: 48rem;
+    margin: 0 auto;
+}
+
+.links hr {
+    margin-bottom: 2rem;
+}
+
+.links {
+    margin-bottom: 4rem;
+}
+
+.links h2:not(:first-of-type) {
+    text-align: right;
+}
+
+#root > main > section > h2:first-of-type {
+    background-color: white;
+    padding: 1rem;
+    color: black;
+    margin-bottom: 3rem;
 }

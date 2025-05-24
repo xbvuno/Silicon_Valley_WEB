@@ -1,0 +1,146 @@
+section.download {
+	padding-top: 2rem;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+section.download > article {
+    flex: 1 1 12rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	padding: 2rem 4rem;
+	height: fit-content;
+    max-height: 16rem;
+	transition: 0.2s;
+    min-width: 12rem;
+    white-space: nowrap;
+    margin: 0;
+}
+
+section.download > article:hover {
+	filter: invert(1);
+	cursor: pointer;
+}
+
+section.download > article .title h2,
+section.download > article .title p {
+    margin-bottom: 0;
+    text-align: center;
+}
+
+section.download > article .title p {
+    height: 1rem;
+}
+
+section.download > article img {
+	height: 5rem;
+}
+
+section.download > article p {
+	text-align: center;
+}
+
+.popup article {
+    max-width: 32rem;
+}
+
+.popup section:has(details[open]) {
+    overflow-y: auto;
+}
+
+.popup section {
+    overflow: hidden;
+    text-align: center;
+    margin-bottom: 0;
+    margin-top: 0.5rem;
+    max-height: 64svh;
+}
+
+.popup h2,
+.popup .sv-chap-sub {
+    text-align: center;
+    text-shadow: 0px 0px 1rem black;
+}
+
+.popup h2 {
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+}
+
+.popup p {
+    margin-bottom: 2rem;
+}
+
+.popup section p:last-of-type {
+    margin-bottom: 0;
+}
+
+.popup .sv-chap-sub {
+    margin-bottom: 2rem;
+}
+
+.popup article section img {
+    margin-bottom: 1rem;
+}
+
+.popup details {
+    text-align: left;
+    border-radius: 0.2rem;
+    width: 80%;
+    margin: 0 auto 1rem auto;
+    transition: 0.2s;
+    background-color: #00000040;
+}
+
+.popup details[open] {
+    width: 100%;
+    padding: 0.5rem;
+}
+
+.popup details summary {
+    background-color: #00000040;
+    padding: 1rem;
+}
+
+.popup details div {
+    padding: 1rem 1rem 1rem 1rem;
+    padding-top: 0.5rem;
+}
+
+.popup .buttons {
+    padding-top: 1.5rem;
+    padding-bottom: 0.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.popup button {
+    white-space: nowrap;
+}
+
+.popup button.go-back {
+    --bv-color: var(--bv-primary);
+    background-color: transparent;
+    width: 30%;
+}
+
+.changelog div {
+    padding: 1rem;
+    text-align: left;
+}
+
+.changelog div hr{
+    margin-bottom: 2rem;
+}
+
+.changelog div h2 {
+    font-family: 'Share Tech', sans-serif;
+}
+.changelog div * {
+    margin-top: 0;
+}

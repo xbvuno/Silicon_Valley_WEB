@@ -8,25 +8,18 @@
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 	padding: 0.5rem 1rem;
-	position: sticky;
+	position: fixed;
 	width: 100%;
 	top: 0;
 	background-color: #020202;
 	overflow-y: hidden;
-	transition: 0.6s;
+	transition: 0.2s;
     z-index: 9;
+	height: 3.2rem;
 }
 
 #root > header.hidden {
-	height: 0;
-	padding: 0;
-}
-
-#root > header * {
-	transition: 0.6s;
-}
-
-#root > header.hidden * {
-	opacity: 0;
+	top: -3.2rem;	
 }

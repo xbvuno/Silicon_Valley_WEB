@@ -1,51 +1,18 @@
-import { useEffect, useState } from "react";
-import "./assets/white_on_black/load.scss";
+import "./assets/themes/white_on_black/load.scss";
 import "./App.scss";
-import Banner from "./components/Banner";
-import Header from "./components/Header";
-import DownloadArticlesContainer from "./components/DownloadArticlesContainer";
+import SplashSection from "./components/sections/SplashSection";
+import DownloadsSection from "./components/sections/DownloadsSection";
+import LinksSection from "./components/sections/LinksSection";
+import ChangelogSection from "./components/sections/ChangelogSection";
 
 function App() {
 	return (
 		<>
-			<Banner />
-			<Header />
+			<SplashSection />
 			<main>
-				<section>
-					<h2 className='sv-chap-title'>
-						Prova ora una delle nostre beta!
-					</h2>
-					<p>
-						Abbiamo deciso di rilasciare delle demo libere che
-						rispecchiano lo stato dello sviluppo del gioco.
-					</p>
-				</section>
-        <DownloadArticlesContainer/>
-        <section>
-          <h2 className='sv-chap-title'>
-						FACCI SAPERE COSA NE PENSI!
-					</h2>
-          <p>
-            Se hai domande, suggerimenti o vuoi semplicemente farci sapere <br/>
-            cosa ne pensi, puoi trovarci su Discord
-          </p>
-          <div class='centered-button'>
-            <button><a className="sv-chap-title" href="https://discord.gg/MzqeXAHpfu">DISCORD</a></button>
-          </div>
-          
-        </section>
-        <section>
-          <h2 className='sv-chap-title'>
-						UN PROGETTO OPEN-SOURCE
-					</h2>
-          <p>
-            Abbiamo deciso di sviluppare Silicon Valley con Godot Game Engine, <br/>puoi trovare tutti i file liberamente nella nostra repo di Github
-          </p>
-          <div class='centered-button'>
-            <button><a className="sv-chap-title" href="https://github.com/xbvuno/Silicon_Valley_RW">GITHUB</a></button>
-          </div>
-          
-        </section>
+				<DownloadsSection />
+				<ChangelogSection />
+				<LinksSection />
 			</main>
 		</>
 	);
