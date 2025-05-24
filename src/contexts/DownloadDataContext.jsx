@@ -24,7 +24,7 @@ export function DownloadDataProvider({ children }) {
     fund_files.latest_tag = tags[0]?.name || "";
 
     const cached = localStorage.getItem("last_funds");
-    if (cached && false) {
+    if (cached) {
       const cached_json = JSON.parse(cached);
       if (
         cached_json.expire_on &&
