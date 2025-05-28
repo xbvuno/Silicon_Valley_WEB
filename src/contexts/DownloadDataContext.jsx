@@ -31,15 +31,11 @@ export function DownloadDataProvider({ children }) {
         new Date(cached_json.expire_on) > new Date() &&
         cached_json.latest_tag === fund_files.latest_tag
       ) {
-        console.log('✅ Cached data is valid, using it');
         setFundFiles(cached_json);
         return;
-      } else {
-        console.log('🔃 Cached data expired or tag mismatch, fetching new data');
       }
-    } else {
-      console.log('🔶 No cached data found, fetching new data');
     }
+
     for (const tag of tags) {
       const tagName = tag.name;
       if (
