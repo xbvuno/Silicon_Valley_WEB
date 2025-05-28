@@ -53,7 +53,7 @@ function DownloadArticlesContainer() {
 					<h2 className='sv-chap-sub'>MacOS</h2>
 					<p className='sv-chap-sub'></p>
 				</div>
-				<img src='media/svg/platforms/macos.svg' alt='macos logo' />
+				<img src='/media/svg/platforms/macos.svg' alt='macos logo' />
 				<p>{fundFiles.macos.version}</p>
 			</article>
 		);
